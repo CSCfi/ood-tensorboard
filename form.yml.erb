@@ -1,3 +1,4 @@
+<% require "/ood/deps/util/attributes/csc_smart_attributes" -%>
 ---
 cluster: "puhti"
 
@@ -20,11 +21,13 @@ attributes:
 form:
   - csc_slurm_project
   - csc_slurm_partition
+  - csc_header_resources
   - csc_cores
   - csc_memory
   - csc_time
   - csc_nvme
+  - csc_header_settings
+  - modules
   - tb_logdir
   - tb_extra_args
-  - modules
-
+  - csc_slurm_limits
