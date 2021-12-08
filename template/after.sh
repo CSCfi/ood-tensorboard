@@ -10,4 +10,4 @@ else
   clean_up 1
 fi
 
-sleep 2
+sleep 5
