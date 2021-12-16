@@ -1,0 +1,20 @@
+--- program.py	2021-12-03 09:14:51.000000000 +0200
++++ program.py	2021-12-03 09:16:07.000000000 +0200
+@@ -327,7 +327,7 @@
+         Args:
+           server: The result of `self._make_server()`.
+         """
+-        server_url = urllib.parse.urlparse(server.get_url())
++        server_url = urllib.parse.urlparse("http://localhost:1234")
+         info = manager.TensorBoardInfo(
+             version=version.VERSION,
+             start_time=int(time.time()),
+@@ -847,7 +847,7 @@
+                     if ":" in host and not host.startswith("[")
+                     else host
+                 )
+-            self._url = "http://%s:%d%s/" % (
++            self._url = "http://%s:%s%s/" % (
+                 display_host,
+                 self.server_port,
+                 self._flags.path_prefix.rstrip("/"),

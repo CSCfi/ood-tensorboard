@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# tensorboard_program_path contains the path to tensorboard/program.py inside the container
+program=$(cat tensorboard_program_path)
+
+export SING_FLAGS="$SING_FLAGS -B $(pwd)/program.py:$program"
+
+singularity_wrapper exec tensorboard $@

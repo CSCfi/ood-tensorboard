@@ -1,0 +1,10 @@
+---
+name: TensorBoard
+#<200b> is an invisible space to differentiate this category from OODs Apps category which is hidden
+category: "Apps​"
+subcategory: Servers
+role: batch_connect
+description: |
+  This app will launch [TensorBoard], [TensorFlow]'s Visualization Toolkit
+  [TensorBoard]: https://www.tensorflow.org/guide/summaries_and_tensorboard
+  [TensorFlow]: https://www.tensorflow.org/
