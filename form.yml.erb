@@ -1,0 +1,46 @@
+<% require "/ood/deps/util/attributes/csc_smart_attributes" -%>
+---
+cluster: "puhti"
+
+attributes:
+
+  tb_logdir:
+    label: "TensorBoard log directory"
+    required: true
+    help: "The directory that contains data to visualize."
+
+  tb_extra_args:
+    label: "Additional TensorBoard arguments"
+
+  modules:
+    label: "Module"
+    widget: select
+    options:
+      - "tensorflow/2.7"
+  csc_slurm_partition:
+    value: interactive
+    select:
+      - "interactive"
+      - "small"
+      - "test"
+      - "fmi"
+      - "fmitest"
+  csc_memory:
+    value: 9
+  csc_reset_cache:
+    app: "sys/ood-tensorboard"
+
+form:
+  - csc_slurm_project
+  - csc_slurm_partition
+  - csc_header_resources
+  - csc_cores
+  - csc_memory
+  - csc_time
+  - csc_nvme
+  - csc_header_settings
+  - modules
+  - tb_logdir
+  - tb_extra_args
+  - csc_slurm_limits
+  - csc_reset_cache

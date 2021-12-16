@@ -1,0 +1,14 @@
+# export the module function if it exists
+#set -x
+source /appl/profile/zz-csc-env.sh
+[[ $(type -t module) == "function" ]] && export -f module
+
+# find available port to run nginx on
+port=$(find_port ${host})
+
+# generate password
+password="$(create_passwd 32)"
+
+# Export variables for using in nginx.conf
+export NGINX_COOKIE=${password}
+export NGINX_PORT=${port}

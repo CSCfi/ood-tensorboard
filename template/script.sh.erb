@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Load modules
+<%- unless context.modules.blank? -%>
+# Load additional modules
+module load <%= context.modules %>
+<%- end -%>
+
+socket_dir=$(mktemp -d)
+
+# Get the path of tensorboard/program.py and copy it
+singularity_wrapper exec bash -c "tb_file=$(python -c 'from tensorboard import program;print(program.__file__)'); echo \${tb_file} > tensorboard_program_path;cp \${tb_file} $(pwd);"
+
+# Patch program.py for unix sockets and store the path to it
+program=$(cat tensorboard_program_path)
+patch -N program.py tensorboard.patch
+
+# Generate nginx.conf with correct port, password, etc.
+./create_nginx_conf.sh
+# Launch nginx
+bin/nginx -c "<%= session.staged_root -%>/config/nginx.conf"
+
+# Launch the Tensorboard Server
+bin/tensorboard --logdir=<%= context.tb_logdir %> --host="unix://$TMPDIR/tensorboard.sock" <%= context.tb_extra_args %>
