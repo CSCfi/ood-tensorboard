@@ -2,7 +2,7 @@
 
 This [Tensorboard](https://www.tensorflow.org/tensorboard) OnDemand app runs through an authenticating reverse proxy.
 
-The app requires ood-util and ood-initializers to work.
+The app requires [ood-util](https://github.com/CSCfi/ood-util) and [ood-initializers](https://github.com/CSCfi/ood-initializers) to work.
 
 ## About
 TensorBoard normally starts on a defined port and requires no authentication.
