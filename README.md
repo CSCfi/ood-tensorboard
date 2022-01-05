@@ -2,6 +2,8 @@
 
 This [Tensorboard](https://www.tensorflow.org/tensorboard) OnDemand app runs through an authenticating reverse proxy.
 
+The app requires ood-util and ood-initializers to work.
+
 ## About
 TensorBoard normally starts on a defined port and requires no authentication.
 Anyone that can access the compute node by ssh can then also access TensorBoard.
