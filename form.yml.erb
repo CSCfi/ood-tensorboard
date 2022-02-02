@@ -25,12 +25,20 @@ attributes:
       - "test"
       - "fmi"
       - "fmitest"
+  csc_slurm_reservation:
+    partitions:
+      - "interactive"
+      - "small"
+      - "test"
+      - "fmi"
+      - "fmitest"
   csc_memory:
     value: 9
   csc_reset_cache:
     app: "sys/ood-tensorboard"
 
 form:
+  - csc_slurm_reservation
   - csc_slurm_project
   - csc_slurm_partition
   - csc_header_resources
