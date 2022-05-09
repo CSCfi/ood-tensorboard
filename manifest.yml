@@ -5,4 +5,4 @@ category: "Apps​"
 subcategory: Servers
 role: batch_connect
 description: |
-  This app will launch TensorBoard, TensorFlow's Visualization Toolkit
+  Interactive TensorBoard, TensorFlow's Visualization Toolkit, session
