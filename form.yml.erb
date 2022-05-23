@@ -16,7 +16,6 @@ attributes:
     label: "Module"
     widget: select
     options:
-      - "tensorflow/2.7"
       - "tensorflow/2.8"
   csc_slurm_partition:
     value: interactive
@@ -37,8 +36,12 @@ attributes:
     value: 9
   csc_reset_cache:
     app: "sys/ood-tensorboard"
+  csc_extra_desc:
+    desc: |
+      <a href="https://docs.csc.fi/computing/webinterface/tensorboard/" target="_blank">Documentation</a>
 
 form:
+  - csc_extra_desc
   - csc_slurm_reservation
   - csc_slurm_project
   - csc_slurm_partition
