@@ -13,7 +13,7 @@ singularity_wrapper exec bash -c "tb_file=$(python -c 'from tensorboard import p
 
 # Patch program.py for unix sockets and store the path to it
 program=$(cat tensorboard_program_path)
-patch -N program.py tensorboard.patch
+/appl/opt/ood/$SLURM_OOD_ENV/soft/patch -N program.py tensorboard.patch
 
 # Generate nginx.conf with correct port, password, etc.
 ./create_nginx_conf.sh
