@@ -9,7 +9,7 @@ module load <%= context.modules %>
 socket_dir=$(mktemp -d)
 
 # Get the path of tensorboard/program.py and copy it
-singularity_wrapper exec bash -c "tb_file=$(python -c 'from tensorboard import program;print(program.__file__)'); echo \${tb_file} > tensorboard_program_path;cp \${tb_file} $(pwd);"
+singularity_wrapper exec bash -c "tb_file=$(python3 -c 'from tensorboard import program;print(program.__file__)'); echo \${tb_file} > tensorboard_program_path;cp \${tb_file} $(pwd);"
 
 # Patch program.py for unix sockets and store the path to it
 program=$(cat tensorboard_program_path)
